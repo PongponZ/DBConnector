@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>DBConnector</id>
+    <version>1.0.0</version>
+    <authors>DBConnector</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net5.0">
+        <dependency id="System.Configuration.ConfigurationManager" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Data.SqlClient" version="4.8.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\Dev\SQLConnector\DBConnector\DBConnector\bin\Release\net5.0\DBConnector.dll" target="lib\net5.0\DBConnector.dll" />
+  </files>
+</package>

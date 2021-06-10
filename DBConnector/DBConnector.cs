@@ -5,12 +5,12 @@ using System.Data.SqlClient;
 
 namespace DBConnector
 {
-    public class DBConnector
+    public class Database
     {
         private SqlConnectionStringBuilder _builder = new SqlConnectionStringBuilder();
         private SqlConnection _connection;
 
-        public DBConnector()
+        public Database()
         {
             _builder.DataSource = ConfigurationManager.AppSettings["Host"];
             _builder.InitialCatalog = ConfigurationManager.AppSettings["DatabaseName"];
@@ -21,12 +21,12 @@ namespace DBConnector
             _connection.Open();
 
             if (_connection.State == ConnectionState.Open)
-                Console.WriteLine($"Database Connected.");
+                Console.WriteLine($"Database Connected !!.");
 
             _connection.Close();
         }
 
-        public DBConnector(string host, string databaseName, string username, string password)
+        public Database(string host, string databaseName, string username, string password)
         {
             _builder.DataSource = host;
             _builder.InitialCatalog = databaseName;
@@ -54,7 +54,7 @@ namespace DBConnector
                 SqlCommand cmd = new SqlCommand(statement, _connection);
 
                 if (parameters != null)
-                    cmd.Parameters.Add(ConvertParam(parameters)); ;
+                    cmd.Parameters.AddRange(ConvertParam(parameters));
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -85,7 +85,7 @@ namespace DBConnector
 
 
                 if (parameters != null)
-                    cmd.Parameters.Add(ConvertParam(parameters)); ;
+                    cmd.Parameters.AddRange(ConvertParam(parameters));
 
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -122,7 +122,7 @@ namespace DBConnector
             cmd.CommandType = CommandType.StoredProcedure;
 
             if (parameters != null)
-                cmd.Parameters.Add(ConvertParam(parameters));
+                cmd.Parameters.AddRange(ConvertParam(parameters));
 
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 
@@ -148,8 +148,8 @@ namespace DBConnector
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 if (parameters != null)
-                    cmd.Parameters.Add(ConvertParam(parameters));
-
+                    cmd.Parameters.AddRange(ConvertParam(parameters));
+              
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
@@ -164,15 +164,15 @@ namespace DBConnector
 
         private SqlParameter[] ConvertParam(Parameters[] param)
         {
-
-            SqlParameter[] s = new SqlParameter[param.Length];
+            
+            SqlParameter[] pm = new SqlParameter[param.Length];
 
             for (int i = 0; i < param.Length; i++)
             {
-                s[i] = new SqlParameter(param[i].ParameterName, param[i].Value);
+                pm[i] = new SqlParameter(param[i].ParameterName, SqlDbType.NVarChar) { Value=param[i].Value };
             }
-
-            return s;
+            
+            return pm;
         }
 
     }
@@ -180,6 +180,6 @@ namespace DBConnector
     public class Parameters
     {
         public string ParameterName { get; set; }
-        public object Value { get; set; }
+        public string Value { get; set; }
     }
 }
