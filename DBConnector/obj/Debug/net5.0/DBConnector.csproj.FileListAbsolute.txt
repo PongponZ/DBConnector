@@ -1,0 +1,13 @@
+D:\Dev\SQLConnector\DBConnector\DBConnector\bin\Debug\net5.0\DBConnector.dll.config
+D:\Dev\SQLConnector\DBConnector\DBConnector\bin\Debug\net5.0\DBConnector.deps.json
+D:\Dev\SQLConnector\DBConnector\DBConnector\bin\Debug\net5.0\DBConnector.dll
+D:\Dev\SQLConnector\DBConnector\DBConnector\bin\Debug\net5.0\ref\DBConnector.dll
+D:\Dev\SQLConnector\DBConnector\DBConnector\bin\Debug\net5.0\DBConnector.pdb
+D:\Dev\SQLConnector\DBConnector\DBConnector\obj\Debug\net5.0\DBConnector.csproj.AssemblyReference.cache
+D:\Dev\SQLConnector\DBConnector\DBConnector\obj\Debug\net5.0\DBConnector.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\SQLConnector\DBConnector\DBConnector\obj\Debug\net5.0\DBConnector.AssemblyInfoInputs.cache
+D:\Dev\SQLConnector\DBConnector\DBConnector\obj\Debug\net5.0\DBConnector.AssemblyInfo.cs
+D:\Dev\SQLConnector\DBConnector\DBConnector\obj\Debug\net5.0\DBConnector.csproj.CoreCompileInputs.cache
+D:\Dev\SQLConnector\DBConnector\DBConnector\obj\Debug\net5.0\DBConnector.dll
+D:\Dev\SQLConnector\DBConnector\DBConnector\obj\Debug\net5.0\ref\DBConnector.dll
+D:\Dev\SQLConnector\DBConnector\DBConnector\obj\Debug\net5.0\DBConnector.pdb
