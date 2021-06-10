@@ -51,6 +51,8 @@ namespace DBConnector
         {
             try
             {
+                _connection.Open();
+
                 SqlCommand cmd = new SqlCommand(statement, _connection);
 
                 if (parameters != null)
@@ -58,6 +60,8 @@ namespace DBConnector
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
+
+                _connection.Close();
 
                 return true;
             }
@@ -142,6 +146,8 @@ namespace DBConnector
         {
             try
             {
+                _connection.Open();
+
                 SqlCommand cmd = _connection.CreateCommand();
 
                 cmd.CommandText = storeName;
@@ -152,6 +158,8 @@ namespace DBConnector
               
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
+
+                _connection.Close();
 
                 return true;
             }
@@ -169,7 +177,7 @@ namespace DBConnector
 
             for (int i = 0; i < param.Length; i++)
             {
-                pm[i] = new SqlParameter(param[i].ParameterName, SqlDbType.NVarChar) { Value=param[i].Value };
+                pm[i] = new SqlParameter(param[i].paramName, param[i].type) { Value=param[i].value };
             }
             
             return pm;
@@ -179,7 +187,9 @@ namespace DBConnector
 
     public class Parameters
     {
-        public string ParameterName { get; set; }
-        public string Value { get; set; }
+        public string paramName { get; set; }
+        public SqlDbType type { get; set; }
+        public object value { get; set; }
     }
+
 }
